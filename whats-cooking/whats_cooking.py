@@ -8,9 +8,7 @@ import pandas
 import sklearn
 from sklearn import model_selection
 from sklearn import preprocessing
-from sklearn import svm
 from sklearn import linear_model
-from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
@@ -53,7 +51,7 @@ test_sheet = tfidf.transform(x_test)
 
 LR = LogisticRegression(C=8.5, solver = 'liblinear')
 LR.fit(matrixtfidf, num_recipe_tr)    # Model is learning the relationship between the descriptors and the cuisine int values - training
-predictions = LR.predict(test_sheet)    # Use info from the training (line above) to predict Category column for x_test - still part of training
+predictions = LR.predict(test_sheet)    # Use info from the training (line above) to predict cuisines for x_test - still part of training
 print (accuracy_score(num_recipe_ts, predictions))
 
 # Test
